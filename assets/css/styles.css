@@ -19,8 +19,8 @@ label {
 }
 
 .container {
-    height: 50%;
-    width: 50%;
+    height: 60%;
+    width: 60%;
     padding: 20px;
     background-color: rgba(148, 233, 182,0.75);
     border-radius: 5%;
@@ -98,4 +98,24 @@ label {
     width: fit-content;
     padding: 0 10px;
     border-radius: 5px;
+}
+
+@media screen and (max-width:450px) {
+    h1 {font-size: 22px;}
+    #numeroContatore{
+        font-size: 40px;
+    }
+
+    .container-numero-iniziale{
+        flex-direction: column;
+    }
+
+    .btn, .container-numero-iniziale > label {
+        font-size: 14px;
+    }
+
+    #numeroIncremento, #numeroIniziale {
+        font-size: 24px;
+    }
+
 }

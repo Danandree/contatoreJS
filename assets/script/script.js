@@ -37,9 +37,11 @@ function updateNumber(){
 function openSettings(){
     if(document.getElementById("setContainer").style.display === "none" || document.getElementById("setContainer").style.display === ""){
         document.getElementById("setContainer").style.display = "flex";
+        document.getElementById("settingsButton").innerHTML = "Chiudi parametri";
     }
     else{
         document.getElementById("setContainer").style.display = "none";
+        document.getElementById("settingsButton").innerHTML = "Cambia parametri";
     }
 }
 
