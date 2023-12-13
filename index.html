@@ -3,17 +3,37 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>JS Counter</title>
+    <title>Contatore JavaScript</title>
     <link rel="stylesheet" href="assets/css/styles.css"/>
     <script src="assets/script/script.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <label id="numeroContatore">0</label>
+        <h1>Contatore</h1>
+        <label id="numeroContatore"></label>
         <div class="btnContainer">
-            <button class="btn" id="diminuisci">diminuisci</button>
-            <button class="btn" id="resetta">resetta</button>
-            <button class="btn" id="aumenta">aumenta</button>
+            <div class="btn" id="diminuisci">-</div>
+            <div class="btn" id="resetta">Reset</div>
+            <div class="btn" id="aumenta">+</div>
+        </div>
+        <div class="btn" id="settingsButton">Cambia parametri</div>
+        <div class="settingsContainer" id="setContainer">
+            <div class="container-numero-iniziale">
+                <label>Start: </label>
+                <label id="numeroIniziale"></label>
+                <div class="buttons">
+                    <button id="setNumeroIniziale" class="btn">Set</button>
+                    <button id="resetNumeroIniziale" class="btn">Reset</button>
+                </div>
+            </div>
+            <div class="container-numero-iniziale">
+                <label>Incremento: </label>
+                <label id="numeroIncremento"></label>
+                <div class="buttons">
+                    <button id="setNumeroIncremento" class="btn">Set</button>
+                    <button id="resetNumeroIncremento" class="btn">Reset</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>
