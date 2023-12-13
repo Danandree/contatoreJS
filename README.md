@@ -1,1 +1,1 @@
-# Contaore JavaScript
+# Contatore JavaScript
