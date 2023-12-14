@@ -29,6 +29,7 @@ label {
     align-items: center;
     justify-content: space-between;
     background-color: rgba(#7fffd4,0.75);
+    max-width: 500px;
 }
 
 .container-numero-iniziale {
@@ -65,6 +66,7 @@ label {
     transition-duration: 0.4s;
     cursor: pointer;
     width: 100%;
+    max-width: 150px;
 }
 
 .btn:hover{
@@ -99,7 +101,9 @@ label {
     padding: 0 10px;
     border-radius: 5px;
 }
-
+#diminuisci, #aumenta {
+    font-size: 24px;
+}
 @media screen and (max-width:450px) {
     h1 {font-size: 22px;}
     #numeroContatore{
@@ -116,6 +120,9 @@ label {
 
     #numeroIncremento, #numeroIniziale {
         font-size: 24px;
+    }
+    #diminuisci, #aumenta {
+        font-size: 18px;
     }
 
 }
