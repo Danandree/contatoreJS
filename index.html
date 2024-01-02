@@ -9,29 +9,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Contatore</h1>
-        <label id="numeroContatore"></label>
-        <div class="btnContainer">
-            <div class="btn" id="diminuisci">-</div>
-            <div class="btn" id="resetta">Reset</div>
-            <div class="btn" id="aumenta">+</div>
-        </div>
         <div class="btn" id="settingsButton">Cambia parametri</div>
         <div class="settingsContainer" id="setContainer">
             <div class="container-numero-iniziale">
                 <label>Start: </label>
                 <label id="numeroIniziale"></label>
                 <div class="buttons">
-                    <button id="setNumeroIniziale" class="btn">Set</button>
-                    <button id="resetNumeroIniziale" class="btn">Reset</button>
+                    <button id="setNumeroIniziale" class="btn" data-action="setInitialNumber">Set</button>
+                    <button id="resetNumeroIniziale" class="btn" data-action="resetInitialNumber">Reset</button>
                 </div>
             </div>
             <div class="container-numero-iniziale">
                 <label>Incremento: </label>
                 <label id="numeroIncremento"></label>
                 <div class="buttons">
-                    <button id="setNumeroIncremento" class="btn">Set</button>
-                    <button id="resetNumeroIncremento" class="btn">Reset</button>
+                    <button id="setNumeroIncremento" class="btn" data-action="setNumber">Set</button>
+                    <button id="resetNumeroIncremento" class="btn" data-action="resetNumber">Reset</button>
                 </div>
             </div>
         </div>

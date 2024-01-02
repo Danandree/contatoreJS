@@ -79,7 +79,7 @@ label {
     width: fit-content;
 }
 
-#numeroContatore{
+.numeroContatore{
     text-align: center;
     font-size: 56px;
     background-color: rgb(188, 244, 193);
