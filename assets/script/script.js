@@ -3,11 +3,8 @@ let inizio = 0;
 let incremento = 1;
 let precision = 0;
 let numeroContatore;
-let btnContainer;
 
 const container = document.getElementsByClassName("container")[0];
-const numeroIncremento = document.getElementById("numeroIncremento");
-const numeroIniziale = document.getElementById("numeroIniziale");
 const settingsButton = document.getElementById("settingsButton");
 const setContainer = document.getElementById("setContainer");
 
@@ -19,36 +16,38 @@ class settingsMenuListener{
         this._elemento = elemento;
         elemento.onclick = this.onClick.bind(this);
     }
-
-    setInitialNumber(){
-        let nuovoInizio = prompt("Immettere il nuovo numero di parternza del contatore");
-        if(Number(nuovoInizio)){
-            this.updateInizio(parseFloat(nuovoInizio));
-        }
-        else{
-            alert("\"" + nuovoInizio + "\" non é un numero valido")
-        }
-    }
-    resetInitialNumber(){
-        this.updateInizio(0);
-    }
-    setNumber(){
-        let nuovoIncremento = prompt("Immettere il nuovo numero di incremento");
-        if(Number(nuovoIncremento)){
-            let decimalStr = nuovoIncremento.toString().split('.')[1];
-            if(decimalStr != undefined){
-                this.updateIncremento(parseFloat(nuovoIncremento), decimalStr.length);
+    setInitialNumber(innerHTML){
+        if(innerHTML === "Set"){
+                let nuovoInizio = prompt("Immettere il nuovo numero di parternza del contatore");
+            if(Number(nuovoInizio)){
+                this.updateInizio(parseFloat(nuovoInizio));
             }
             else{
-                this.updateIncremento(parseFloat(nuovoIncremento), 0);
+                alert("\"" + nuovoInizio + "\" non é un numero valido")
             }
         }
         else{
-            alert("\"" + nuovoIncremento + "\" non é un numero valido")
+            this.updateInizio(0);
         }
     }
-    resetNumber (){
-        this.updateIncremento(1,0);
+    setIncrementNumber(innerHTML){
+        if(innerHTML === "Set"){
+            let nuovoIncremento = prompt("Immettere il nuovo numero di incremento");
+            if(Number(nuovoIncremento)){
+                let decimalStr = nuovoIncremento.toString().split('.')[1];
+                if(decimalStr != undefined){
+                    this.updateIncremento(parseFloat(nuovoIncremento), decimalStr.length);
+                }
+                else{
+                    this.updateIncremento(parseFloat(nuovoIncremento), 0);
+                }
+            }
+            else{
+                alert("\"" + nuovoIncremento + "\" non é un numero valido")
+            }
+        } else {
+            this.updateIncremento(1,0);
+        }
     }
     updateIncremento(uInc, prec){
         incremento = uInc;
@@ -60,17 +59,17 @@ class settingsMenuListener{
     }
     onClick(event){
         let azione = event.target.dataset.action;
+        let innerHTML = event.target.innerHTML;
         if(azione){
-            this[azione]();
+            this[azione](innerHTML);
         }
     }
 }
 function updateNumber(){
     numeroContatore.innerHTML = contatore.toFixed(precision);
-    numeroIniziale.innerHTML = inizio;
-    numeroIncremento.innerHTML = incremento;
+    document.getElementById("numeroIniziale").innerHTML = inizio;
+    document.getElementById("numeroIncremento").innerHTML = incremento;
 }
-
 function openSettings(){
     if(setContainer.style.display === "none" || setContainer.style.display === ""){
         setContainer.style.display = "flex";
@@ -81,30 +80,29 @@ function openSettings(){
         settingsButton.innerHTML = "Cambia parametri";
     }
 }
-
-function createElement(elemento, classe, inHtml){
+function createElement(elemento, classe, inHtml, mainContainer, containerAfter = null){
     let nuovoElemento = document.createElement(elemento);
     nuovoElemento.className = classe;
     nuovoElemento.innerHTML = inHtml;
+    if(containerAfter){
+        mainContainer.insertBefore(nuovoElemento, containerAfter);
+    }
+    else{
+        mainContainer.appendChild(nuovoElemento);
+    }
     return nuovoElemento;
 }
-
 function makeElements(){
-    let titolo = createElement("h1", "titolo", "Contatore", container);
-    container.insertBefore(titolo, settingsButton);
-    numeroContatore = createElement("label", "numeroContatore", "", container);
-    container.insertBefore(numeroContatore, settingsButton);
-    btnContainer = createElement("div", "btnContainer", "", container);
-    container.insertBefore(btnContainer, settingsButton);
-    const operators = {
+    numeroContatore = createElement("label", "numeroContatore", "", container, settingsButton);
+    let btnContainer = createElement("div", "btnContainer", "", container, settingsButton);
+    const pulsantiContatore = {
         "-" : () => contatore -= incremento,
         "Reset" : () => contatore = inizio,        
         "+" : () => contatore += incremento
         }
-    for (key in operators){
-        let button = createElement("div", "btn", key);
-        btnContainer.appendChild(button);
-        button.onclick = (parametro) => {operators[parametro.target.innerHTML]()};
+    for (key in pulsantiContatore){
+        let button = createElement("button", "btn", key, btnContainer);
+        button.onclick = (parametro) => {pulsantiContatore[parametro.target.innerHTML]()};
     }
 }
 
