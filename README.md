@@ -9,6 +9,5 @@ Semplice contatore in JavaScript, aumenta e diminuisce il valore con i tasti "+"
 > 3. Cliccando sul tasato "Reset" i valori tornano al loro valore iniziale (0 per il valore del contatore e 1 per il valore dell'incremento)<br/>
 > ![contaoreJS-aperto-scalato](https://github.com/Danandree/contatoreJS/blob/main/assets/img/contaoreJS-aperto-scalato.png)
 ### Provalo!
-Testa il contatore ai seguenti link: <br/>
-- [Contatore JS](https://contatorejs-9a144.web.app/) <br/>
-- [Contatore JS](https://contatorejs-9a144.firebaseapp.com/)
+Testa il contatore al seguente link: <br/>
+- [Contatore JS](https://contatorejs-9a144.web.app/)
